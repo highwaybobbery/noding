@@ -1,11 +1,10 @@
 http = require 'http'
 
-exports.start = (route)->
+exports.start = (port, route)->
   onRequest = (request, response)->
     route(request, response)
 
-
   server = http.createServer onRequest
-  server.listen(8888)
+  server.listen(port)
 
   console.log 'server started'
